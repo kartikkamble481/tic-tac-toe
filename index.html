@@ -7,13 +7,16 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="smg-container hide">
+      <p id="smg"></p>
+      <button id="newbtn">new game</button>
+    </div>
     <main>
+      <h1 id="title">TIC-TAC-TOE</h1>
       <div class="contener">
-        <h1 id="title">TIC-TAC-TOE</h1>
-
         <div class="game">
-          <button class="box">x</button>
-          <button class="box">o</button>
+          <button class="box"></button>
+          <button class="box"></button>
           <button class="box"></button>
           <button class="box"></button>
           <button class="box"></button>
@@ -22,9 +25,8 @@
           <button class="box"></button>
           <button class="box"></button>
         </div>
-
-        <button class="reset">reset game</button>
       </div>
+      <button class="reset">reset game</button>
     </main>
 
     <script src="app.js"></script>
