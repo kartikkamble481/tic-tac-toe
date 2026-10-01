@@ -4,7 +4,7 @@ let resetbtn = document.querySelector(".reset");
 
 let newGamebtn = document.querySelector("newbtn");
 
-let smgcotainer = document.querySelector(".smg-container");
+let smgcontainer = document.querySelector(".smg-container");
 
 let smg = document.querySelector("#smg");
 
@@ -20,6 +20,12 @@ const winpatterns = [
   [3, 4, 5],
   [6, 7, 8],
 ];
+
+const resetGame = () => {
+  let turnO = true;
+  enableboxes();
+  smgcontainer.classList.add("hide");
+};
 
 boxes.forEach((box) => {
   box.addEventListener("click", () => {
@@ -38,9 +44,23 @@ boxes.forEach((box) => {
   });
 });
 
+const disableboxes = () => {
+  for (box of boxes) {
+    box.disabled = true;
+  }
+};
+
+const enableboxes = () => {
+  for (box of boxes) {
+    box.disabled = false;
+    box.innerText = "";
+  }
+};
+
 const showWiner = (winner) => {
   smg.innerText = ` congratulations , winner is ${winner} `;
-  smgcotainer.classList.remove("hide");
+  smgcontainer.classList.remove("hide");
+  disableboxes();
 };
 
 const checkWinner = () => {
@@ -57,3 +77,6 @@ const checkWinner = () => {
     }
   }
 };
+
+newbtn.addEventListener("click", resetGame);
+resetbtn.addEventListener("click", resetGame);
